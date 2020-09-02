@@ -1,1 +1,39 @@
 # pyodrx
+pyodrx is a Python wrapper for generating OpenDRIVE 1.4 xml files. 
+Please note that this is not an official implementation.
+
+Work in progress, supported right now is creation of geometries and lanesections (with roadmarker)
+
+
+## Getting Started
+
+clone or download the repository.
+
+### Prerequisites
+
+Been tested with Python 3.6.9
+
+
+### Installing
+
+Go to the pyodrx folder and use
+
+```
+pip install .
+```
+
+
+## Related work
+
+
+### esmini
+[esmini](https://github.com/esmini/esmini) is a basic OpenSCENARIO player
+
+[pyoscx](https://github.com/pyoscx/pyoscx) basic python wrapper for OpenSCENARIO 
+
+## Authors
+
+* **Mikael Andersson** - *Initial work* - [mander76](https://github.com/mander76)
+
+## Data formats
+The wrapper is based on the OpenDRIVE standard.
