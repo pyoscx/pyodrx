@@ -29,7 +29,12 @@ pip install .
 ### esmini
 [esmini](https://github.com/esmini/esmini) is a basic OpenSCENARIO player
 
+### pyoscx
 [pyoscx](https://github.com/pyoscx/pyoscx) basic python wrapper for OpenSCENARIO 
+
+### spirals
+
+[pyeulerspiral](https://github.com/stefan-urban/pyeulerspiral), used this lib for calculating euler spirals
 
 ## Authors
 
