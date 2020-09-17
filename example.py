@@ -46,4 +46,6 @@ odr = pyodrx.OpenDrive('myroad')
 
 odr.add_road(road)
 
-pyodrx.run_road(odr,os.path.join('..','pyoscx','esmini'))
+odr.adjust_roads_and_lanes()
+
+pyodrx.run_road(odr,os.path.join('..','esmini'))
