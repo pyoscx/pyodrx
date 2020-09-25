@@ -19,7 +19,7 @@ Been tested with Python 3.6.9
 Go to the pyodrx folder and use
 
 ```
-pip install .
+pip3 install .
 ```
 
 
