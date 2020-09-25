@@ -2,7 +2,8 @@
 pyodrx is a Python wrapper for generating OpenDRIVE 1.4 xml files. 
 Please note that this is not an official implementation.
 
-Work in progress, supported right now is creation of geometries and lanesections (with roadmarker)
+Work in progress, supported right now is creation of geometries, lanesections (with roadmarker), and junctions including some automation of 
+roads that are connected with eachother.
 
 
 ## Getting Started
@@ -39,6 +40,8 @@ pip3 install .
 ## Authors
 
 * **Mikael Andersson** - *Initial work* - [mander76](https://github.com/mander76)
+
+* **Irene Natale** - *Inital work* - [inatale93](https://github.com/inatale93)
 
 ## Data formats
 The wrapper is based on the OpenDRIVE standard.
