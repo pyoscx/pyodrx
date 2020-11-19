@@ -1,0 +1,1243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>pyodrx.links API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyodrx.links</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import xml.etree.ElementTree as ET
+from .helpers import enum2str
+from .enumerations import ElementType
+
+from .exceptions import NotSameAmountOfLanesError
+
+class _Links():
+    &#34;&#34;&#34; Link creates a Link element used for roadlinking in OpenDrive
+        
+        Parameters
+        ----------
+
+        Attributes
+        ----------
+            links (_Link): all links added
+
+        Methods
+        -------
+            get_element()
+                Returns the full ElementTree of the class
+
+            add_link(link)
+                adds a link to links
+
+    &#34;&#34;&#34;
+    def __init__(self):
+        &#34;&#34;&#34; initalize the _Links
+
+        &#34;&#34;&#34;
+
+        self.links = []
+
+    def add_link(self,link):
+        &#34;&#34;&#34; Adds a _Link 
+
+            Parameters
+            ----------
+                link (_Link): a link to be added to the Links
+
+        &#34;&#34;&#34;
+        self.links.append(link)
+    def get_predecessor_contact_point(self):
+        &#34;&#34;&#34; returns the predecessor contact_point of the link (if exists)
+
+            Return
+                id (int): id of the predecessor road
+        &#34;&#34;&#34;
+        retval = None
+        for l in self.links:
+            if l.link_type == &#39;predecessor&#39;:
+                retval = l.contact_point
+        return retval
+    def get_successor_contact_point(self):
+        &#34;&#34;&#34; returns the successor contact_point of the link (if exists)
+
+            Return
+                id (int): id of the successor road (None if no successor available)
+        &#34;&#34;&#34;
+        retval = None
+        for l in self.links:
+            if l.link_type == &#39;successor&#39;:
+                retval = l.contact_point
+        return retval
+    def get_predecessor_type(self):
+        &#34;&#34;&#34; returns the predecessor id of the link (if exists)
+
+            Return
+                id (int): id of the predecessor road
+        &#34;&#34;&#34;
+        retval = None
+        for l in self.links:
+            if l.link_type == &#39;predecessor&#39;:
+                retval = l.element_type
+        return retval
+    def get_successor_type(self):
+        &#34;&#34;&#34; returns the successor id of the link (if exists)
+
+            Return
+                id (int): id of the successor road (None if no successor available)
+        &#34;&#34;&#34;
+        retval = None
+        for l in self.links:
+            if l.link_type == &#39;successor&#39;:
+                retval = l.element_type
+        return retval
+    def get_predecessor_id(self):
+        &#34;&#34;&#34; returns the predecessor id of the link (if exists)
+
+            Return
+                id (int): id of the predecessor road
+        &#34;&#34;&#34;
+        retval = None
+        for l in self.links:
+            if l.link_type == &#39;predecessor&#39;:
+                retval = l.element_id
+        return retval
+
+    def get_successor_id(self):
+        &#34;&#34;&#34; returns the successor id of the link (if exists)
+
+            Return
+                id (int): id of the successor road (None if no successor available)
+        &#34;&#34;&#34;
+        retval = None
+        for l in self.links:
+            if l.link_type == &#39;successor&#39;:
+                retval = l.element_id
+        return retval
+    def get_element(self):
+        &#34;&#34;&#34; returns the elementTree of the _Link
+
+        &#34;&#34;&#34;
+        
+        element = ET.Element(&#39;link&#39;)
+        for l in self.links:
+            element.append(l.get_element())
+        return element
+
+
+class _Link():
+    &#34;&#34;&#34; Link creates a predecessor/successor/neghbor element used for Links in OpenDrive
+        
+        Parameters
+        ----------
+            link_type (str): the type of link (successor, predecessor, or neighbor)
+
+            element_id (str): name of the linked road
+            
+            element_type (ElementType): type of element the linked road
+                Default: None
+
+            contact_point (ContactPoint): the contact point of the link
+                Default: None
+
+            direction (Direction): the direction of the link (used for neighbor)
+                Default: None
+
+        Attributes
+        ----------
+            link_type (str): the type of link (successor, predecessor, or neighbor)
+
+            element_type (ElementType): type of element the linked road
+
+            element_id (str): name of the linked road
+
+            contact_point (ContactPoint): the contact point of the link (used for successor and predecessor)
+
+            direction (Direction): the direction of the link (used for neighbor)
+
+        Methods
+        -------
+            get_element()
+                Returns the full ElementTree of the class
+
+            get_attributes()
+                Returns a dictionary of all attributes of the class
+
+    &#34;&#34;&#34;
+
+    def __init__(self,link_type,element_id,element_type=None,contact_point=None,direction=None):
+        &#34;&#34;&#34; initalize the _Link
+
+        Parameters
+        ----------
+            link_type (str): the type of link (successor, predecessor, or neighbor)
+
+            element_id (str): name of the linked road
+            
+            element_type (ElementType): type of element the linked road
+                Default: None
+
+            contact_point (ContactPoint): the contact point of the link
+                Default: None
+
+            direction (Direction): the direction of the link (used for neighbor)
+                Default: None
+        &#34;&#34;&#34;
+
+
+        if link_type == &#39;neighbor&#39;:
+            if direction == None:
+                raise ValueError(&#39;direction has to be defined for neighbor&#39;)
+
+        self.link_type = link_type
+        self.element_type = element_type
+        self.element_id = element_id
+        self.contact_point = contact_point
+        self.direction = direction
+
+    def get_attributes(self):
+        &#34;&#34;&#34; returns the attributes as a dict of the _Link
+
+        &#34;&#34;&#34;
+        retdict = {}
+        if self.element_type == None:
+            retdict[&#39;id&#39;] = str(self.element_id)
+        else:
+            retdict[&#39;elementType&#39;] = enum2str(self.element_type)
+            retdict[&#39;elementId&#39;] = str(self.element_id)
+        
+        if self.contact_point:
+            retdict[&#39;contactPoint&#39;] = enum2str(self.contact_point)
+        elif self.link_type == &#39;neighbor&#39;:
+            retdict[&#39;direction&#39;] = enum2str(self.direction)
+        return retdict
+
+    def get_element(self):
+        &#34;&#34;&#34; returns the elementTree of the _Link
+
+        &#34;&#34;&#34;
+        element = ET.Element(self.link_type,attrib=self.get_attributes())
+        return element
+
+class LaneLinker():
+    &#34;&#34;&#34; LaneLinker stored information for linking lane sections 
+        
+        Parameters
+        ----------
+
+        Attributes
+        ----------
+            links: all lane links added (predlane (Lane), succlane (Lane), found=bool)
+
+        Methods
+        -------
+            add_link(predlane, succlane)
+                adds a lane link 
+
+    &#34;&#34;&#34;
+    def __init__(self):
+        &#34;&#34;&#34; initalize the _Links
+
+        &#34;&#34;&#34;
+
+        self.links = []
+
+    def add_link(self,predlane, succlane,connecting_road=None):
+        &#34;&#34;&#34; Adds a _Link 
+
+            Parameters
+            ----------
+                predlane (Lane): predecessor lane
+
+                succlane (Lane): successor lane
+
+                connecting_road (id): id of a connecting road (used for junctions)
+
+        &#34;&#34;&#34;
+        self.links.append(_lanelink(predlane,succlane,connecting_road))
+
+class _lanelink():
+    &#34;&#34;&#34; helper class for LaneLinker
+
+    &#34;&#34;&#34;
+    def __init__(self,predecessor,successor,connecting_road):
+        self.predecessor = predecessor
+        self.successor = successor
+        self.connecting_road = connecting_road 
+        self.used = False
+
+
+class Connection():
+    &#34;&#34;&#34; Connection creates a connection as a base of junction
+        
+        Parameters
+        ----------
+            incoming_road (int): the id of the incoming road to the junciton
+
+            connecting_road (int): id of the connecting road (type junction)
+            
+            contact_point (ContactPoint): the contact point of the link
+
+            id (int): id of the junction (automated?)
+
+        Attributes
+        ----------
+            incoming_road (int): the id of the incoming road to the junciton
+
+            connecting_road (int): id of the connecting road (type junction)
+            
+            contact_point (ContactPoint): the contact point of the link
+
+            id (int): id of the connection (automated?)
+
+            links (list of tuple(int) ): a list of all lanelinks in the connection
+
+        Methods
+        -------
+            get_element()
+                Returns the full ElementTree of the class
+
+            get_attributes()
+                Returns a dictionary of all attributes of the class
+
+            add_lanelink(in_lane,out_lane)
+                Adds a lane link to the connection
+    &#34;&#34;&#34;
+
+    def __init__(self,incoming_road,connecting_road,contact_point,id=None):
+        &#34;&#34;&#34; initalize the Connection
+
+        Parameters
+        ----------
+            incoming_road (int): the id of the incoming road to the junciton
+
+            connecting_road (int): id of the connecting road (type junction)
+            
+            contact_point (ContactPoint): the contact point of the link
+
+            id (int): id of the junction (automated)
+        &#34;&#34;&#34;
+
+        self.incoming_road = incoming_road
+        self.connecting_road = connecting_road
+        self.contact_point = contact_point
+        self.id = id
+        self.links = []
+
+    def _set_id(self,id):
+        &#34;&#34;&#34; id is set
+
+            Parameters
+            ----------
+                id (int): the id of the connection
+        &#34;&#34;&#34;
+        if self.id == None:
+            self.id = id
+
+    def add_lanelink(self,in_lane,out_lane):
+        &#34;&#34;&#34; Adds a new link to the connection
+
+            Parameters
+            ----------
+                in_lane: lane id of the incoming road
+
+                out_lane: land id of the outgoing road
+        &#34;&#34;&#34;
+        self.links.append((in_lane,out_lane))
+    def get_attributes(self):
+        &#34;&#34;&#34; returns the attributes as a dict of the Connection
+
+        &#34;&#34;&#34;
+        retdict = {}
+        retdict[&#39;incomingRoad&#39;] = str(self.incoming_road)
+        retdict[&#39;id&#39;] = str(self.id)
+        retdict[&#39;contactPoint&#39;] = enum2str(self.contact_point)
+        retdict[&#39;connectingRoad&#39;] = str(self.connecting_road)
+        return retdict
+
+    def get_element(self):
+        &#34;&#34;&#34; returns the elementTree of the Connection
+
+        &#34;&#34;&#34;
+        element = ET.Element(&#39;connection&#39;,attrib=self.get_attributes())
+        for l in self.links:
+            ET.SubElement(element,&#39;laneLink&#39;,attrib={&#39;from&#39;:str(l[0]),&#39;to&#39;:str(l[1])})
+        return element
+
+
+
+class Junction():
+    &#34;&#34;&#34; Junction creates a junction of OpenDRIVE
+        
+        Parameters
+        ----------
+            name (str): name of the junction
+
+            id (int): id of the junction
+
+        Attributes
+        ----------
+            name (str): name of the junction
+
+            id (int): id of the junction
+
+            connections (list of Connection): all the connections in the junction
+
+        Methods
+        -------
+            get_element()
+                Returns the full ElementTree of the class
+
+            get_attributes()
+                Returns a dictionary of all attributes of the class
+
+            add_connection(connection)
+                Adds a connection to the junction
+    &#34;&#34;&#34;
+    ##TODO: add type
+    def __init__(self,name,id):
+        &#34;&#34;&#34; initalize the Junction
+
+        Parameters
+        ----------
+            name (str): name of the junction
+
+            id (int): id of the junction
+        &#34;&#34;&#34;
+        self.name = name
+        self.id = id
+        self.connections = []
+        self._id_counter = 0
+
+    def add_connection(self,connection):
+        &#34;&#34;&#34; Adds a new link to the Junction
+
+            Parameters
+            ----------
+                connection (Connection): adds a connection to the junction
+
+        &#34;&#34;&#34;
+        connection._set_id(self._id_counter)
+        self._id_counter += 1
+        self.connections.append(connection)
+
+    def get_attributes(self):
+        &#34;&#34;&#34; returns the attributes as a dict of the Junction
+
+        &#34;&#34;&#34;
+        retdict = {}
+        retdict[&#39;name&#39;] = self.name
+        retdict[&#39;id&#39;] = str(self.id)
+        return retdict
+
+    def get_element(self):
+        &#34;&#34;&#34; returns the elementTree of the Junction
+
+        &#34;&#34;&#34;
+        element = ET.Element(&#39;junction&#39;,attrib=self.get_attributes())
+        for con in self.connections:
+            element.append(con.get_element())
+        return element
+
+#from .exceptions import NotSameAmountOfLanesError
+from .enumerations import ContactPoint
+
+def are_roads_consecutive(road1, road2): 
+
+    if road1.successor is not None and road2.predecessor is not None: 
+        if road1.successor.element_type == ElementType.road and road2.predecessor.element_type == ElementType.road:
+            if road1.successor.element_id == road2.id and road2.predecessor.element_id == road1.id: 
+                return True 
+
+    return False
+
+def create_lane_links(road1,road2):
+    &#34;&#34;&#34; create_lane_links takes to roads and if they are connected, match their lanes 
+        and creates lane links. 
+        NOTE: now only works for roads/connecting roads with the same amount of lanes
+
+        Parameters
+        ----------
+            road1 (Road): first road to be lane linked
+
+            road2 (Road): second road to be lane linked
+    &#34;&#34;&#34;
+    if road1.road_type == -1 and road2.road_type == -1:
+        #both are roads
+        if are_roads_consecutive(road1, road2): 
+            _create_links_roads(road1,road2)
+        elif are_roads_consecutive(road2, road1): 
+            _create_links_roads(road2,road1)
+
+    # if road1.road_type == -1 and road2.road_type == -1:
+    #     #both are roads
+    #     if road1.successor is not None and road2.successor is not None: 
+    #         if road1.successor.element_type == ElementType.road and road2.successor.element_type == ElementType.road:
+    #             if road1.successor and road1.successor.element_id == road2.id:
+    #                 _create_links_roads(road1,road2)
+    #             elif road1.predecessor and road1.predecessor.element_id == road2.id:
+    #                 _create_links_roads(road2,road1)
+    elif road1.road_type != -1:
+        _create_links_connecting_road(road1,road2)
+    elif road2.road_type != -1:
+
+        _create_links_connecting_road(road2,road1)
+    
+def _create_links_connecting_road(connecting,road):
+    &#34;&#34;&#34; _create_links_connecting_road will create lane links between a connecting road and a normal road
+
+        Parameters
+        ----------
+            connecting (Road): a road of type connecting road (not -1)
+
+            road (Road): a that connects to the connecting road
+
+    &#34;&#34;&#34;
+    linktype, sign, connecting_lanesec =  _get_related_lanesection(connecting,road)
+    _, _, road_lanesection_id =  _get_related_lanesection(road,connecting) 
+
+    if connecting_lanesec != None:
+        if connecting.lanes.lanesections[connecting_lanesec].leftlanes:
+            # do left lanes
+            if len(connecting.lanes.lanesections[connecting_lanesec].leftlanes) == len(road.lanes.lanesections[road_lanesection_id].leftlanes):
+                for i in range(len(road.lanes.lanesections[road_lanesection_id].leftlanes)):
+                    linkid = road.lanes.lanesections[road_lanesection_id].leftlanes[i].lane_id*sign
+                    connecting.lanes.lanesections[connecting_lanesec].leftlanes[i].add_link(linktype,linkid)
+            else:
+                raise NotSameAmountOfLanesError(&#39;Connecting road &#39;,connecting.id, &#39; and road &#39;, road.id, &#39;do not have the same number of left lanes.&#39;)
+        if connecting.lanes.lanesections[connecting_lanesec].rightlanes:
+            # do right lanes
+            if len(connecting.lanes.lanesections[connecting_lanesec].rightlanes) == len(road.lanes.lanesections[road_lanesection_id].rightlanes):
+                for i in range(len(road.lanes.lanesections[road_lanesection_id].rightlanes)):
+                    linkid = road.lanes.lanesections[road_lanesection_id].rightlanes[i].lane_id*sign
+                    connecting.lanes.lanesections[connecting_lanesec].rightlanes[i].add_link(linktype,linkid)
+            else:
+                raise NotSameAmountOfLanesError(&#39;Connecting road &#39;,connecting.id, &#39; and road &#39;, road.id, &#39;do not have the same number of right lanes.&#39;)
+
+def _get_related_lanesection(road,connected_road):
+    &#34;&#34;&#34; _get_related_lanesection takes to roads, and gives the correct lane section to use
+        the type of link and if the sign of lanes should be switched
+
+        Parameters
+        ----------
+            road (Road): the road that you want the information about
+
+            connected_road (Road): the connected road
+
+        Returns
+        -------
+            linktype (str): the linktype of road to connected road (successor or predecessor)
+
+            sign (int): +1 or -1 depending on if the sign should change in the linking
+
+            road_lanesection_id (int): what lanesection in the road that should be used to link
+    &#34;&#34;&#34;
+    linktype = None
+    sign = None
+    road_lanesection_id = None
+ 
+    if road.successor and road.successor.element_id == connected_road.id:
+        linktype = &#39;successor&#39;
+        if road.successor.contact_point == ContactPoint.start:
+            sign = 1
+        else:
+            sign = -1
+        road_lanesection_id = -1
+
+    elif road.predecessor and road.predecessor.element_id == connected_road.id:
+        linktype = &#39;predecessor&#39;
+        if road.predecessor.contact_point == ContactPoint.start:
+            sign = -1
+        else:
+            sign = 1
+        road_lanesection_id = 0
+
+    if connected_road.road_type != -1:
+        # treat connecting road in junction differently 
+        if connected_road.predecessor.element_id == road.id:
+            if connected_road.predecessor.link_type == ContactPoint.start:
+                road_lanesection_id = -1
+                sign = -1
+            else:
+                road_lanesection_id = 0
+                sign = 1
+        elif connected_road.successor.element_id == road.id:
+            if connected_road.predecessor.link_type == ContactPoint.start:
+                road_lanesection_id = 0
+                sign = 1
+            else:
+                road_lanesection_id = -1
+                sign = -1
+    return linktype, sign, road_lanesection_id
+
+def _create_links_roads(pre_road,suc_road):
+    &#34;&#34;&#34; _create_links_roads takes two roads and connect the lanes with links, if they have the same amount. 
+
+        Parameters
+        ----------
+            pre_road (Road): the predecessor road 
+
+            suc_road (Road): the successor road
+
+    &#34;&#34;&#34;
+    pre_linktype, pre_sign, pre_connecting_lanesec =  _get_related_lanesection(pre_road,suc_road)
+    suc_linktype, _, suc_connecting_lanesec =  _get_related_lanesection(suc_road,pre_road)
+    if len(pre_road.lanes.lanesections[pre_connecting_lanesec].leftlanes) == len(suc_road.lanes.lanesections[-1].leftlanes):
+        for i in range(len(pre_road.lanes.lanesections[pre_connecting_lanesec].leftlanes)):
+            linkid = pre_road.lanes.lanesections[pre_connecting_lanesec].leftlanes[i].lane_id*pre_sign
+            pre_road.lanes.lanesections[pre_connecting_lanesec].leftlanes[i].add_link(pre_linktype,linkid)
+            
+
+            suc_road.lanes.lanesections[suc_connecting_lanesec].leftlanes[i].add_link(suc_linktype,linkid*pre_sign)
+    else:
+        raise NotSameAmountOfLanesError(&#39;Road &#39; + str(pre_road.id) + &#39; and road &#39; + str(suc_road.id) + &#39; does not have the same number of right lanes.&#39;)
+
+
+    if len(pre_road.lanes.lanesections[pre_connecting_lanesec].rightlanes) == len(suc_road.lanes.lanesections[-1].rightlanes):
+        for i in range(len(pre_road.lanes.lanesections[pre_connecting_lanesec].rightlanes)):
+            linkid = pre_road.lanes.lanesections[pre_connecting_lanesec].rightlanes[i].lane_id
+            pre_road.lanes.lanesections[pre_connecting_lanesec].rightlanes[i].add_link(pre_linktype,linkid)
+            suc_road.lanes.lanesections[suc_connecting_lanesec].rightlanes[i].add_link(suc_linktype,linkid)
+    else:
+        raise NotSameAmountOfLanesError(&#39;Road &#39; + str(pre_road.id) + &#39; and road &#39; + str(suc_road.id) + &#39; does not have the same number of right lanes.&#39;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pyodrx.links.are_roads_consecutive"><code class="name flex">
+<span>def <span class="ident">are_roads_consecutive</span></span>(<span>road1, road2)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def are_roads_consecutive(road1, road2): 
+
+    if road1.successor is not None and road2.predecessor is not None: 
+        if road1.successor.element_type == ElementType.road and road2.predecessor.element_type == ElementType.road:
+            if road1.successor.element_id == road2.id and road2.predecessor.element_id == road1.id: 
+                return True 
+
+    return False</code></pre>
+</details>
+</dd>
+<dt id="pyodrx.links.create_lane_links"><code class="name flex">
+<span>def <span class="ident">create_lane_links</span></span>(<span>road1, road2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>create_lane_links takes to roads and if they are connected, match their lanes
+and creates lane links.
+NOTE: now only works for roads/connecting roads with the same amount of lanes</p>
+<h2 id="parameters">Parameters</h2>
+<pre><code>road1 (Road): first road to be lane linked
+
+road2 (Road): second road to be lane linked
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_lane_links(road1,road2):
+    &#34;&#34;&#34; create_lane_links takes to roads and if they are connected, match their lanes 
+        and creates lane links. 
+        NOTE: now only works for roads/connecting roads with the same amount of lanes
+
+        Parameters
+        ----------
+            road1 (Road): first road to be lane linked
+
+            road2 (Road): second road to be lane linked
+    &#34;&#34;&#34;
+    if road1.road_type == -1 and road2.road_type == -1:
+        #both are roads
+        if are_roads_consecutive(road1, road2): 
+            _create_links_roads(road1,road2)
+        elif are_roads_consecutive(road2, road1): 
+            _create_links_roads(road2,road1)
+
+    # if road1.road_type == -1 and road2.road_type == -1:
+    #     #both are roads
+    #     if road1.successor is not None and road2.successor is not None: 
+    #         if road1.successor.element_type == ElementType.road and road2.successor.element_type == ElementType.road:
+    #             if road1.successor and road1.successor.element_id == road2.id:
+    #                 _create_links_roads(road1,road2)
+    #             elif road1.predecessor and road1.predecessor.element_id == road2.id:
+    #                 _create_links_roads(road2,road1)
+    elif road1.road_type != -1:
+        _create_links_connecting_road(road1,road2)
+    elif road2.road_type != -1:
+
+        _create_links_connecting_road(road2,road1)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pyodrx.links.Connection"><code class="flex name class">
+<span>class <span class="ident">Connection</span></span>
+<span>(</span><span>incoming_road, connecting_road, contact_point, id=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Connection creates a connection as a base of junction</p>
+<h2 id="parameters">Parameters</h2>
+<pre><code>incoming_road (int): the id of the incoming road to the junciton
+
+connecting_road (int): id of the connecting road (type junction)
+
+contact_point (ContactPoint): the contact point of the link
+
+id (int): id of the junction (automated?)
+</code></pre>
+<h2 id="attributes">Attributes</h2>
+<pre><code>incoming_road (int): the id of the incoming road to the junciton
+
+connecting_road (int): id of the connecting road (type junction)
+
+contact_point (ContactPoint): the contact point of the link
+
+id (int): id of the connection (automated?)
+
+links (list of tuple(int) ): a list of all lanelinks in the connection
+</code></pre>
+<h2 id="methods">Methods</h2>
+<pre><code>get_element()
+    Returns the full ElementTree of the class
+
+get_attributes()
+    Returns a dictionary of all attributes of the class
+
+add_lanelink(in_lane,out_lane)
+    Adds a lane link to the connection
+</code></pre>
+<p>initalize the Connection</p>
+<h2 id="parameters_1">Parameters</h2>
+<pre><code>incoming_road (int): the id of the incoming road to the junciton
+
+connecting_road (int): id of the connecting road (type junction)
+
+contact_point (ContactPoint): the contact point of the link
+
+id (int): id of the junction (automated)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Connection():
+    &#34;&#34;&#34; Connection creates a connection as a base of junction
+        
+        Parameters
+        ----------
+            incoming_road (int): the id of the incoming road to the junciton
+
+            connecting_road (int): id of the connecting road (type junction)
+            
+            contact_point (ContactPoint): the contact point of the link
+
+            id (int): id of the junction (automated?)
+
+        Attributes
+        ----------
+            incoming_road (int): the id of the incoming road to the junciton
+
+            connecting_road (int): id of the connecting road (type junction)
+            
+            contact_point (ContactPoint): the contact point of the link
+
+            id (int): id of the connection (automated?)
+
+            links (list of tuple(int) ): a list of all lanelinks in the connection
+
+        Methods
+        -------
+            get_element()
+                Returns the full ElementTree of the class
+
+            get_attributes()
+                Returns a dictionary of all attributes of the class
+
+            add_lanelink(in_lane,out_lane)
+                Adds a lane link to the connection
+    &#34;&#34;&#34;
+
+    def __init__(self,incoming_road,connecting_road,contact_point,id=None):
+        &#34;&#34;&#34; initalize the Connection
+
+        Parameters
+        ----------
+            incoming_road (int): the id of the incoming road to the junciton
+
+            connecting_road (int): id of the connecting road (type junction)
+            
+            contact_point (ContactPoint): the contact point of the link
+
+            id (int): id of the junction (automated)
+        &#34;&#34;&#34;
+
+        self.incoming_road = incoming_road
+        self.connecting_road = connecting_road
+        self.contact_point = contact_point
+        self.id = id
+        self.links = []
+
+    def _set_id(self,id):
+        &#34;&#34;&#34; id is set
+
+            Parameters
+            ----------
+                id (int): the id of the connection
+        &#34;&#34;&#34;
+        if self.id == None:
+            self.id = id
+
+    def add_lanelink(self,in_lane,out_lane):
+        &#34;&#34;&#34; Adds a new link to the connection
+
+            Parameters
+            ----------
+                in_lane: lane id of the incoming road
+
+                out_lane: land id of the outgoing road
+        &#34;&#34;&#34;
+        self.links.append((in_lane,out_lane))
+    def get_attributes(self):
+        &#34;&#34;&#34; returns the attributes as a dict of the Connection
+
+        &#34;&#34;&#34;
+        retdict = {}
+        retdict[&#39;incomingRoad&#39;] = str(self.incoming_road)
+        retdict[&#39;id&#39;] = str(self.id)
+        retdict[&#39;contactPoint&#39;] = enum2str(self.contact_point)
+        retdict[&#39;connectingRoad&#39;] = str(self.connecting_road)
+        return retdict
+
+    def get_element(self):
+        &#34;&#34;&#34; returns the elementTree of the Connection
+
+        &#34;&#34;&#34;
+        element = ET.Element(&#39;connection&#39;,attrib=self.get_attributes())
+        for l in self.links:
+            ET.SubElement(element,&#39;laneLink&#39;,attrib={&#39;from&#39;:str(l[0]),&#39;to&#39;:str(l[1])})
+        return element</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pyodrx.links.Connection.add_lanelink"><code class="name flex">
+<span>def <span class="ident">add_lanelink</span></span>(<span>self, in_lane, out_lane)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a new link to the connection</p>
+<h2 id="parameters">Parameters</h2>
+<pre><code>in_lane: lane id of the incoming road
+
+out_lane: land id of the outgoing road
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_lanelink(self,in_lane,out_lane):
+    &#34;&#34;&#34; Adds a new link to the connection
+
+        Parameters
+        ----------
+            in_lane: lane id of the incoming road
+
+            out_lane: land id of the outgoing road
+    &#34;&#34;&#34;
+    self.links.append((in_lane,out_lane))</code></pre>
+</details>
+</dd>
+<dt id="pyodrx.links.Connection.get_attributes"><code class="name flex">
+<span>def <span class="ident">get_attributes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>returns the attributes as a dict of the Connection</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_attributes(self):
+    &#34;&#34;&#34; returns the attributes as a dict of the Connection
+
+    &#34;&#34;&#34;
+    retdict = {}
+    retdict[&#39;incomingRoad&#39;] = str(self.incoming_road)
+    retdict[&#39;id&#39;] = str(self.id)
+    retdict[&#39;contactPoint&#39;] = enum2str(self.contact_point)
+    retdict[&#39;connectingRoad&#39;] = str(self.connecting_road)
+    return retdict</code></pre>
+</details>
+</dd>
+<dt id="pyodrx.links.Connection.get_element"><code class="name flex">
+<span>def <span class="ident">get_element</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>returns the elementTree of the Connection</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_element(self):
+    &#34;&#34;&#34; returns the elementTree of the Connection
+
+    &#34;&#34;&#34;
+    element = ET.Element(&#39;connection&#39;,attrib=self.get_attributes())
+    for l in self.links:
+        ET.SubElement(element,&#39;laneLink&#39;,attrib={&#39;from&#39;:str(l[0]),&#39;to&#39;:str(l[1])})
+    return element</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyodrx.links.Junction"><code class="flex name class">
+<span>class <span class="ident">Junction</span></span>
+<span>(</span><span>name, id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Junction creates a junction of OpenDRIVE</p>
+<h2 id="parameters">Parameters</h2>
+<pre><code>name (str): name of the junction
+
+id (int): id of the junction
+</code></pre>
+<h2 id="attributes">Attributes</h2>
+<pre><code>name (str): name of the junction
+
+id (int): id of the junction
+
+connections (list of Connection): all the connections in the junction
+</code></pre>
+<h2 id="methods">Methods</h2>
+<pre><code>get_element()
+    Returns the full ElementTree of the class
+
+get_attributes()
+    Returns a dictionary of all attributes of the class
+
+add_connection(connection)
+    Adds a connection to the junction
+</code></pre>
+<p>initalize the Junction</p>
+<h2 id="parameters_1">Parameters</h2>
+<pre><code>name (str): name of the junction
+
+id (int): id of the junction
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Junction():
+    &#34;&#34;&#34; Junction creates a junction of OpenDRIVE
+        
+        Parameters
+        ----------
+            name (str): name of the junction
+
+            id (int): id of the junction
+
+        Attributes
+        ----------
+            name (str): name of the junction
+
+            id (int): id of the junction
+
+            connections (list of Connection): all the connections in the junction
+
+        Methods
+        -------
+            get_element()
+                Returns the full ElementTree of the class
+
+            get_attributes()
+                Returns a dictionary of all attributes of the class
+
+            add_connection(connection)
+                Adds a connection to the junction
+    &#34;&#34;&#34;
+    ##TODO: add type
+    def __init__(self,name,id):
+        &#34;&#34;&#34; initalize the Junction
+
+        Parameters
+        ----------
+            name (str): name of the junction
+
+            id (int): id of the junction
+        &#34;&#34;&#34;
+        self.name = name
+        self.id = id
+        self.connections = []
+        self._id_counter = 0
+
+    def add_connection(self,connection):
+        &#34;&#34;&#34; Adds a new link to the Junction
+
+            Parameters
+            ----------
+                connection (Connection): adds a connection to the junction
+
+        &#34;&#34;&#34;
+        connection._set_id(self._id_counter)
+        self._id_counter += 1
+        self.connections.append(connection)
+
+    def get_attributes(self):
+        &#34;&#34;&#34; returns the attributes as a dict of the Junction
+
+        &#34;&#34;&#34;
+        retdict = {}
+        retdict[&#39;name&#39;] = self.name
+        retdict[&#39;id&#39;] = str(self.id)
+        return retdict
+
+    def get_element(self):
+        &#34;&#34;&#34; returns the elementTree of the Junction
+
+        &#34;&#34;&#34;
+        element = ET.Element(&#39;junction&#39;,attrib=self.get_attributes())
+        for con in self.connections:
+            element.append(con.get_element())
+        return element</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pyodrx.links.Junction.add_connection"><code class="name flex">
+<span>def <span class="ident">add_connection</span></span>(<span>self, connection)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a new link to the Junction</p>
+<h2 id="parameters">Parameters</h2>
+<pre><code>connection (Connection): adds a connection to the junction
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_connection(self,connection):
+    &#34;&#34;&#34; Adds a new link to the Junction
+
+        Parameters
+        ----------
+            connection (Connection): adds a connection to the junction
+
+    &#34;&#34;&#34;
+    connection._set_id(self._id_counter)
+    self._id_counter += 1
+    self.connections.append(connection)</code></pre>
+</details>
+</dd>
+<dt id="pyodrx.links.Junction.get_attributes"><code class="name flex">
+<span>def <span class="ident">get_attributes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>returns the attributes as a dict of the Junction</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_attributes(self):
+    &#34;&#34;&#34; returns the attributes as a dict of the Junction
+
+    &#34;&#34;&#34;
+    retdict = {}
+    retdict[&#39;name&#39;] = self.name
+    retdict[&#39;id&#39;] = str(self.id)
+    return retdict</code></pre>
+</details>
+</dd>
+<dt id="pyodrx.links.Junction.get_element"><code class="name flex">
+<span>def <span class="ident">get_element</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>returns the elementTree of the Junction</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_element(self):
+    &#34;&#34;&#34; returns the elementTree of the Junction
+
+    &#34;&#34;&#34;
+    element = ET.Element(&#39;junction&#39;,attrib=self.get_attributes())
+    for con in self.connections:
+        element.append(con.get_element())
+    return element</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyodrx.links.LaneLinker"><code class="flex name class">
+<span>class <span class="ident">LaneLinker</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>LaneLinker stored information for linking lane sections </p>
+<h2 id="parameters">Parameters</h2>
+<h2 id="attributes">Attributes</h2>
+<pre><code>links: all lane links added (predlane (Lane), succlane (Lane), found=bool)
+</code></pre>
+<h2 id="methods">Methods</h2>
+<pre><code>add_link(predlane, succlane)
+    adds a lane link
+</code></pre>
+<p>initalize the _Links</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LaneLinker():
+    &#34;&#34;&#34; LaneLinker stored information for linking lane sections 
+        
+        Parameters
+        ----------
+
+        Attributes
+        ----------
+            links: all lane links added (predlane (Lane), succlane (Lane), found=bool)
+
+        Methods
+        -------
+            add_link(predlane, succlane)
+                adds a lane link 
+
+    &#34;&#34;&#34;
+    def __init__(self):
+        &#34;&#34;&#34; initalize the _Links
+
+        &#34;&#34;&#34;
+
+        self.links = []
+
+    def add_link(self,predlane, succlane,connecting_road=None):
+        &#34;&#34;&#34; Adds a _Link 
+
+            Parameters
+            ----------
+                predlane (Lane): predecessor lane
+
+                succlane (Lane): successor lane
+
+                connecting_road (id): id of a connecting road (used for junctions)
+
+        &#34;&#34;&#34;
+        self.links.append(_lanelink(predlane,succlane,connecting_road))</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pyodrx.links.LaneLinker.add_link"><code class="name flex">
+<span>def <span class="ident">add_link</span></span>(<span>self, predlane, succlane, connecting_road=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a _Link </p>
+<h2 id="parameters">Parameters</h2>
+<pre><code>predlane (Lane): predecessor lane
+
+succlane (Lane): successor lane
+
+connecting_road (id): id of a connecting road (used for junctions)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_link(self,predlane, succlane,connecting_road=None):
+    &#34;&#34;&#34; Adds a _Link 
+
+        Parameters
+        ----------
+            predlane (Lane): predecessor lane
+
+            succlane (Lane): successor lane
+
+            connecting_road (id): id of a connecting road (used for junctions)
+
+    &#34;&#34;&#34;
+    self.links.append(_lanelink(predlane,succlane,connecting_road))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyodrx" href="index.html">pyodrx</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pyodrx.links.are_roads_consecutive" href="#pyodrx.links.are_roads_consecutive">are_roads_consecutive</a></code></li>
+<li><code><a title="pyodrx.links.create_lane_links" href="#pyodrx.links.create_lane_links">create_lane_links</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyodrx.links.Connection" href="#pyodrx.links.Connection">Connection</a></code></h4>
+<ul class="">
+<li><code><a title="pyodrx.links.Connection.add_lanelink" href="#pyodrx.links.Connection.add_lanelink">add_lanelink</a></code></li>
+<li><code><a title="pyodrx.links.Connection.get_attributes" href="#pyodrx.links.Connection.get_attributes">get_attributes</a></code></li>
+<li><code><a title="pyodrx.links.Connection.get_element" href="#pyodrx.links.Connection.get_element">get_element</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyodrx.links.Junction" href="#pyodrx.links.Junction">Junction</a></code></h4>
+<ul class="">
+<li><code><a title="pyodrx.links.Junction.add_connection" href="#pyodrx.links.Junction.add_connection">add_connection</a></code></li>
+<li><code><a title="pyodrx.links.Junction.get_attributes" href="#pyodrx.links.Junction.get_attributes">get_attributes</a></code></li>
+<li><code><a title="pyodrx.links.Junction.get_element" href="#pyodrx.links.Junction.get_element">get_element</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyodrx.links.LaneLinker" href="#pyodrx.links.LaneLinker">LaneLinker</a></code></h4>
+<ul class="">
+<li><code><a title="pyodrx.links.LaneLinker.add_link" href="#pyodrx.links.LaneLinker.add_link">add_link</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>
