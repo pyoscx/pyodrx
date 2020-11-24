@@ -6,6 +6,7 @@ Work in progress, supported right now is creation of geometries, lanesections (w
 roads that are connected with eachother.
 
 
+
 ## Getting Started
 
 clone or download the repository.
@@ -13,7 +14,6 @@ clone or download the repository.
 ### Prerequisites
 
 Been tested with Python 3.6.9
-
 
 ### Installing
 
@@ -23,9 +23,13 @@ Go to the pyodrx folder and use
 pip3 install .
 ```
 
+### OpenDrive coverage 
+
+OpenDrive coverage can be found in xodr_covergae.txt
+
+
 
 ## Related work
-
 
 ### esmini
 [esmini](https://github.com/esmini/esmini) is a basic OpenSCENARIO player
