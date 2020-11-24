@@ -25,7 +25,7 @@ pip3 install .
 
 ### OpenDrive coverage 
 
-OpenDrive coverage can be found in xodr_covergae.txt
+OpenDrive coverage can be found in xodr_coverage.txt
 
 
 
