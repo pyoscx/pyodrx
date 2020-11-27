@@ -294,7 +294,7 @@ class OpenDrive():
         """
         #adjust roads and their geometries 
         self.adjust_startpoints()
-
+        print("Starting points adjusted ")
         results = list(combinations(self.roads, 2))
 
         for r in range(len(results)):
@@ -356,6 +356,18 @@ class OpenDrive():
         while count_adjusted_roads < len(self.roads):
 
             for k in self.roads: 
+                print("adjusting road ", self.roads[k].id)
+                if self.roads[k].predecessor is not None: 
+                    print("RAD PREDECESSOR ", self.roads[k].predecessor.element_id)
+                    print("self.roads[k].predecessor.element_id)].planview.adjusted", self.roads[str(self.roads[k].predecessor.element_id)].planview.adjusted)
+                    print("element_type", self.roads[k].predecessor.element_type)
+                    
+                if self.roads[k].successor is not None: 
+                    print("RAD SUCCESSOR ", self.roads[k].successor.element_id)
+                    print("self.roads[k].successor.element_id)].planview.adjusted", self.roads[str(self.roads[k].successor.element_id)].planview.adjusted)
+                    print("element_type", self.roads[k].successor.element_type)
+
+
 
                 if count_adjusted_roads == 0: 
                     self.roads[k].planview.adjust_geometries()
@@ -368,7 +380,7 @@ class OpenDrive():
 
                 # check if it has a normal predecessor 
                 if self.roads[k].predecessor is not None and self.roads[str(self.roads[k].predecessor.element_id)].planview.adjusted is True and self.roads[k].predecessor.element_type is not ElementType.junction: 
-
+                    print("road GETS ADJUSTED")
                     self.adjust_road_wrt_neighbour(k, self.roads[k].predecessor.element_id,
                                                    self.roads[k].predecessor.contact_point, 'predecessor')
                     count_adjusted_roads +=1
@@ -386,7 +398,7 @@ class OpenDrive():
 
                 # check if geometry has a normal successor 
                 elif self.roads[k].successor is not None and self.roads[str(self.roads[k].successor.element_id)].planview.adjusted is True and self.roads[k].successor.element_type is not ElementType.junction: 
-
+                    print("road GETS ADJUSTED")
                     self.adjust_road_wrt_neighbour(k, self.roads[k].successor.element_id,
                                                    self.roads[k].successor.contact_point, 'successor')
                     count_adjusted_roads +=1
