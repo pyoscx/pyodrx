@@ -16,10 +16,14 @@ for i in range(numintersections):
     # angles.append(i * 2*np.pi/numintersections)
 
 # use this for a T-crossing instead
-angles = [0,np.pi/2 +0.2, np.pi, 3*np.pi/2]
+# angles = [0,np.pi/2 + np.pi/6, 0, 3*np.pi/2]
+
+angles = [0,np.pi/2+0.2, np.pi, 3*np.pi/2]
 
 print(roads)
-junc = pyodrx.create_junction_roads_R2(roads,angles,9)
+junc = pyodrx.create_junction_roads_R2(roads,angles,40)
+
+print("numebr fo roads in the junction is ", len(junc)) 
 
 odr = pyodrx.OpenDrive('myroad')
 junction = pyodrx.create_junction(junc,1,roads)

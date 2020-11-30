@@ -265,6 +265,7 @@ def create_junction_roads_R2(roads,angles,R,junction=1,startnum=100):
     # linelength = 2*(X0 + (r + Y0)*np.tan((np.pi-an1)/2))
 
     junction_roads = []
+
     # R=r
     #angles[0] = angles[0] + np.pi
     # loop over the roads to get all possible combinations of connecting roads
@@ -289,59 +290,65 @@ def create_junction_roads_R2(roads,angles,R,junction=1,startnum=100):
             # an = np.sign(angles[j]-angles[i])
             # this angle specifies the heading rotation from a straight road going forward 
             # if (i == 0 ): 
-            an1 = abs(angles[j]-angles[i])  #-np.pi
-            if an1 > np.pi: 
-                an1 = -(2*np.pi - an1)
-
-            if i != 0: 
-                if angles[j]>angles[i]: 
-                    an1 = np.pi -an1
-                    an1 = -an1
-            else: 
-                if angles[j]<angles[i]: 
-                    an1 = - an1
-                
-            # else: 
-            #     an1 = -(angles[j]-angles[i])
-            #this angle specifies the angle between the incoming road and the next one 
-            #angle_for_r = angles[j]-angles[i]
-            #adjust angle if multiple of pi
-            
-            # if i != 1 and angles[j] > angles[i] and an1 > 0:
-            #     an1 = -an1
-                
-            # if angle_for_r > np.pi: 
-            #     angle_for_r = -(2*np.pi - angle_for_r)
+            # an1 = abs(angles[j]-angles[i])  #-np.pi
+            # an = np.sign(angles[j]-angles[i]-np.pi) 
+            an1 = angles[j]-angles[i] -np.pi         
             
             angle_arc = an1*arc_part
             angle_cloth = an1*spiral_part
-
+            
             print("in between angle an1 is ", an1)
-            # print("real angle betweeb roads is ", angle_for_r)
+            if i == 0: 
+                if an1 > 0: 
+                    angle_for_r = np.pi - an1
+                else: 
+                    angle_for_r = np.pi - (-an1)
+            else: 
+                an = np.sign(an1)
+                angle_for_r = abs(abs(an1)-np.pi) * an 
+
+            print("real angle between roads is ", angle_for_r)
 
             # create road, either straight or curved
             n_lanes, lanes_offset = get_lanes_offset(roads[i], roads[j], cp )
             if angles[i]==angles[j] or ( angles[j]-angles[i] )% np.pi == 0 :
-                angle = np.pi/2
-                an1 = angle
-                angle_cloth = angle*spiral_part 
-                # spiral_length = 2*abs(angle_cloth*r)
+                # linelength = 0
+                # for k in range(i+1, j+1, 1): 
+                #     print("k is ", k)
+                #     an1 = angles[k]-angles[k-1] -np.pi         
+            
+                #     angle_arc = an1*arc_part
+                #     angle_cloth = an1*spiral_part
+                    
+                #     print("in between angle an1 is ", an1)
+                #     if i == 0: 
+                #         if an1 > 0: 
+                #             angle_for_r = np.pi - an1
+                #         else: 
+                #             angle_for_r = np.pi - (-an1)
+                #     else: 
+                #         angle_for_r = angles[k]-angles[k-1] 
+                    
 
-                denom = (2/3)*abs(an1) - (abs(an1)/3)*(np.sin(an1/9))**2 -np.sin(an1/3) + (2/3)*abs(an1)*np.sin(an1/9)*np.tan((np.pi-an1)/2) + np.cos(an1/3)*np.tan((np.pi-an1)/2)
-                r = R / denom
-                print("straight line radius is ", r)
+                #     angle_cloth = an1*spiral_part 
+                #     # spiral_length = 2*abs(angle_cloth*r)
 
-                spiral_length = 2*abs(angle_cloth*r)
+                #     denom = (2/3)*abs(an1) - (abs(an1)/3)*(np.sin(an1/9))**2 -np.sin(an1/3) + (2/3)*abs(an1)*np.sin(an1/9)*np.tan((np.pi-an1)/2) + np.cos(an1/3)*np.tan((np.pi-an1)/2)
+                #     r = R / denom
+                #     print("straight line radius is ", r)
 
-                spiral = EulerSpiral.createFromLengthAndCurvature(spiral_length, STD_START_CLOTH, 1/r)
-                (X, Y, _) = spiral.calc(spiral_length, 0, 0, STD_START_CLOTH, 0)
+                #     spiral_length = 2*abs(angle_cloth*r)
 
-                X0 = X-r*np.sin(angle_cloth)
-                Y0 = Y-r*(1-np.cos(angle_cloth))
-                linelength = 2*(X0 + (r + Y0)*np.tan((np.pi-an1)/2))
+                #     spiral = EulerSpiral.createFromLengthAndCurvature(spiral_length, STD_START_CLOTH, 1/r)
+                #     (X, Y, _) = spiral.calc(spiral_length, 0, 0, STD_START_CLOTH, 0)
+
+                #     X0 = X-r*np.sin(angle_cloth)
+                #     Y0 = Y-r*(1-np.cos(angle_cloth))
+                #     linelength += X0 + (r + Y0)*np.tan((np.pi-an1)/2)
+                linelength = 2*R
                 tmp_junc = create_straight_road(startnum,length= linelength,junction=junction, n_lanes=n_lanes, lane_offset=lanes_offset)
             else: 
-                # an1 = angle_for_r
+                an1 = angle_for_r
                 denom = (2/3)*abs(an1) - (abs(an1)/3)*(np.sin(abs(an1)/9))**2 -np.sin(abs(an1)/3) + (2/3)*abs(an1)*np.sin(abs(an1)/9)*np.tan((np.pi-abs(an1))/2) + np.cos(abs(an1)/3)*np.tan((np.pi-abs(an1))/2)
                 r = R / denom
                 print("radius is ", r)                
@@ -441,8 +448,8 @@ def create_junction_roads(roads,angles,r,junction=1,spiral_part = 1/3, arc_part 
             # create road, either straight or curved
             n_lanes, lanes_offset = get_lanes_offset(roads[i], roads[j], cp )
             if an == 0:
-                print('n_lanes is ', n_lanes)
-                print('lane offset is ', lanes_offset )
+                # print('n_lanes is ', n_lanes)
+                # print('lane offset is ', lanes_offset )
                 tmp_junc = create_straight_road(startnum,length= linelength,junction=junction, n_lanes=n_lanes, lane_offset=lanes_offset)
             else: 
                 tmp_junc = create_cloth_arc_cloth(  1/r , angle_arc , angle_cloth , startnum , junction, n_lanes=n_lanes, lane_offset=lanes_offset )               

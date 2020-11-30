@@ -298,7 +298,7 @@ class OpenDrive():
         results = list(combinations(self.roads, 2))
 
         for r in range(len(results)):
-            print('analizing roads', results[r][0], results[r][1] )
+            # print('analizing roads', results[r][0], results[r][1] )
             create_lane_links(self.roads[results[r][0]],self.roads[results[r][1]])  
 
 
@@ -380,7 +380,7 @@ class OpenDrive():
 
                 # check if it has a normal predecessor 
                 if self.roads[k].predecessor is not None and self.roads[str(self.roads[k].predecessor.element_id)].planview.adjusted is True and self.roads[k].predecessor.element_type is not ElementType.junction: 
-                    print("road GETS ADJUSTED")
+                    # print("road GETS ADJUSTED")
                     self.adjust_road_wrt_neighbour(k, self.roads[k].predecessor.element_id,
                                                    self.roads[k].predecessor.contact_point, 'predecessor')
                     count_adjusted_roads +=1
@@ -398,7 +398,7 @@ class OpenDrive():
 
                 # check if geometry has a normal successor 
                 elif self.roads[k].successor is not None and self.roads[str(self.roads[k].successor.element_id)].planview.adjusted is True and self.roads[k].successor.element_type is not ElementType.junction: 
-                    print("road GETS ADJUSTED")
+                    # print("road GETS ADJUSTED")
                     self.adjust_road_wrt_neighbour(k, self.roads[k].successor.element_id,
                                                    self.roads[k].successor.contact_point, 'successor')
                     count_adjusted_roads +=1
