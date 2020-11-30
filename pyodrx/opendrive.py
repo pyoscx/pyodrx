@@ -356,16 +356,16 @@ class OpenDrive():
         while count_adjusted_roads < len(self.roads):
 
             for k in self.roads: 
-                print("adjusting road ", self.roads[k].id)
-                if self.roads[k].predecessor is not None: 
-                    print("RAD PREDECESSOR ", self.roads[k].predecessor.element_id)
-                    print("self.roads[k].predecessor.element_id)].planview.adjusted", self.roads[str(self.roads[k].predecessor.element_id)].planview.adjusted)
-                    print("element_type", self.roads[k].predecessor.element_type)
+                # print("adjusting road ", self.roads[k].id)
+                # if self.roads[k].predecessor is not None: 
+                    # print("RAD PREDECESSOR ", self.roads[k].predecessor.element_id)
+                    # print("self.roads[k].predecessor.element_id)].planview.adjusted", self.roads[str(self.roads[k].predecessor.element_id)].planview.adjusted)
+                    # print("element_type", self.roads[k].predecessor.element_type)
                     
-                if self.roads[k].successor is not None: 
-                    print("RAD SUCCESSOR ", self.roads[k].successor.element_id)
-                    print("self.roads[k].successor.element_id)].planview.adjusted", self.roads[str(self.roads[k].successor.element_id)].planview.adjusted)
-                    print("element_type", self.roads[k].successor.element_type)
+                # if self.roads[k].successor is not None: 
+                    # print("RAD SUCCESSOR ", self.roads[k].successor.element_id)
+                    # print("self.roads[k].successor.element_id)].planview.adjusted", self.roads[str(self.roads[k].successor.element_id)].planview.adjusted)
+                    # print("element_type", self.roads[k].successor.element_type)
 
 
 
