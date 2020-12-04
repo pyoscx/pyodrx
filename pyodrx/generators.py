@@ -238,36 +238,8 @@ def create_junction_roads_R2(roads,angles,R,junction=1,startnum=100):
     spiral_part = 1/3
     arc_part = 1/3
 
-    # angle = np.pi/2
-    # an1 = angle
-    # angle_cloth = angle*spiral_part 
-    # # # spiral_length = 2*abs(angle_cloth*r)
-
-    # denom = (2/3)*abs(an1) - (abs(an1)/3)*(np.sin(an1/9))**2 -np.sin(an1/3) + (2/3)*abs(an1)*np.sin(an1/9)*np.tan((np.pi-an1)/2) + np.cos(an1/3)*np.tan((np.pi-an1)/2)
-    # r = R / denom
-    # print("radius is ", r)
-
-    # spiral_length = 2*abs(angle_cloth*r)
-
-    # spiral = EulerSpiral.createFromLengthAndCurvature(spiral_length, STD_START_CLOTH, 1/r)
-    # (X, Y, _) = spiral.calc(spiral_length, 0, 0, STD_START_CLOTH, 0)
-
-    # X0 = X-r*np.sin(angle_cloth)
-    # Y0 = Y-r*(1-np.cos(angle_cloth))
-
-   
-
-    # spiral = EulerSpiral.createFromLengthAndCurvature(spiral_length, STD_START_CLOTH, 1/r)
-    # (X, Y, _) = spiral.calc(spiral_length, 0, 0, STD_START_CLOTH, 0)
-
-    # X0 = X-r*np.sin(angle_cloth)
-    # Y0 = Y-r*(1-np.cos(angle_cloth))
-    # linelength = 2*(X0 + (r + Y0)*np.tan((np.pi-an1)/2))
-
     junction_roads = []
 
-    # R=r
-    #angles[0] = angles[0] + np.pi
     # loop over the roads to get all possible combinations of connecting roads
     for i in range(len(roads)-1):
         # for now the first road is place as base, 
@@ -287,27 +259,29 @@ def create_junction_roads_R2(roads,angles,R,junction=1,startnum=100):
             print("angle of road  ", roads[j].id)
             print("is  ", angles[j])
 
-            # an = np.sign(angles[j]-angles[i])
-            # this angle specifies the heading rotation from a straight road going forward 
-            # if (i == 0 ): 
-            # an1 = abs(angles[j]-angles[i])  #-np.pi
-            # an = np.sign(angles[j]-angles[i]-np.pi) 
-            an1 = angles[j]-angles[i] -np.pi         
-            
-            angle_arc = an1*arc_part
-            angle_cloth = an1*spiral_part
-            
-            print("in between angle an1 is ", an1)
-            if i == 0: 
-                if an1 > 0: 
-                    angle_for_r = np.pi - an1
-                else: 
-                    angle_for_r = np.pi - (-an1)
-            else: 
-                an = np.sign(an1)
-                angle_for_r = abs(abs(an1)-np.pi) * an 
+            an1 = angles[j]-angles[i] -np.pi   # [-pi, pi]   this is for the heading from the "front"   
+            abs_an1 = abs(an1)
 
-            print("real angle between roads is ", angle_for_r)
+            
+            print("an1 in between angle an1 is ", an1*180/np.pi) 
+            
+            if angles[j] > angles[i]:
+                angle_for_r =  abs(angles[j]-angles[i]) 
+                if angle_for_r < np.pi: 
+                    print("case1")
+                    angle_for_r = -angle_for_r
+                else: 
+                    print("case2")
+                    angle_for_r = np.pi - (angle_for_r - np.pi) 
+            else: 
+                angle_for_r =  abs(angles[i]-angles[j]) 
+                if angle_for_r > np.pi: 
+                    print("case3")
+                    angle_for_r = -(np.pi - angle_for_r)
+                
+            abs_angle_for_r = abs(angle_for_r)
+
+            print("angle_for_r real angle between roads is ", angle_for_r*180/np.pi)
 
             # create road, either straight or curved
             n_lanes, lanes_offset = get_lanes_offset(roads[i], roads[j], cp )
@@ -345,23 +319,26 @@ def create_junction_roads_R2(roads,angles,R,junction=1,startnum=100):
                 #     X0 = X-r*np.sin(angle_cloth)
                 #     Y0 = Y-r*(1-np.cos(angle_cloth))
                 #     linelength += X0 + (r + Y0)*np.tan((np.pi-an1)/2)
-                linelength = 2*R
+                linelength = 2*R #+ R*0.2
                 tmp_junc = create_straight_road(startnum,length= linelength,junction=junction, n_lanes=n_lanes, lane_offset=lanes_offset)
             else: 
-                an1 = angle_for_r
-                denom = (2/3)*abs(an1) - (abs(an1)/3)*(np.sin(abs(an1)/9))**2 -np.sin(abs(an1)/3) + (2/3)*abs(an1)*np.sin(abs(an1)/9)*np.tan((np.pi-abs(an1))/2) + np.cos(abs(an1)/3)*np.tan((np.pi-abs(an1))/2)
+                # an1 = angle_for_r
+                
+                angle_cloth = an1 * spiral_part
+                angle_arc = an1 * arc_part
+
+                an1 = abs(an1)
+                angle_cloth = abs(angle_cloth)
+                
+                denom = 2*abs(angle_cloth) - abs(angle_cloth)*(np.sin(angle_cloth/3)**2) - np.sin(angle_cloth) + np.tan(an1/2) * (2*abs(angle_cloth) * np.sin(angle_cloth/3) + np.cos(angle_cloth))
+                # since R = r*denom 
                 r = R / denom
-                print("radius is ", r)                
-
-                spiral_length = 2*abs(angle_cloth*r)
-                spiral = EulerSpiral.createFromLengthAndCurvature(spiral_length, STD_START_CLOTH, 1/r)
-                (X, Y, _) = spiral.calc(spiral_length, 0, 0, STD_START_CLOTH, 0)
-
-                X0 = X-r*np.sin(angle_cloth)
-                Y0 = Y-r*(1-np.cos(angle_cloth))
+                print("denom is ", denom)  
+                
+                
+                print("radius is ", r)    
 
                 tmp_junc = create_cloth_arc_cloth(  1/r , angle_arc , angle_cloth , startnum , junction, n_lanes=n_lanes, lane_offset=lanes_offset )
-                # tmp_junc=  create_arc_road(startnum, R, angle_arc ,junction = junction, n_lanes=n_lanes, lane_offset=lanes_offset)
 
             # add predecessor and successor
             tmp_junc.add_predecessor(ElementType.road,roads[i].id,cp)
