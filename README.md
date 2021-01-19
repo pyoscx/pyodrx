@@ -37,6 +37,9 @@ OpenDrive coverage can be found in xodr_coverage.txt
 ### pyoscx
 [pyoscx](https://github.com/pyoscx/pyoscx) basic python wrapper for OpenSCENARIO 
 
+### scenariogeneration
+[scenariogeneration](https://github.com/pyoscx/scenariogeneration) basic python wrapper to combine pyodrx and pyoscx to generate scenarios
+
 ### spirals
 
 [pyeulerspiral](https://github.com/stefan-urban/pyeulerspiral), used this lib for calculating euler spirals
