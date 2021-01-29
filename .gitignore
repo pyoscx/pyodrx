@@ -1,2 +1,4 @@
 *.pyc
 *.pyo
+*.xodr
+/pyodrx.egg-info
