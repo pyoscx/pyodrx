@@ -1,3 +1,5 @@
 pytest~=6.2.1
 pyodrx~=0.1
 setuptools~=52.0.0
+numpy~=1.19.5
+scipy~=1.6.0
