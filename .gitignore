@@ -1,2 +1,6 @@
 *.pyc
 *.pyo
+venv/*
+requirements.txt
+.idea/*
+pyodrx.egg-info/*
