@@ -4,3 +4,4 @@ venv/*
 requirements.txt
 .idea/*
 pyodrx.egg-info/*
+*.xodr

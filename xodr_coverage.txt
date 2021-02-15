@@ -77,9 +77,9 @@ OpenDRIVE                           YES
 | | | | | |-access                  NO
 | | | | | |-height                  NO
 | | | | | |-rule                    NO
-| |-objects                         NO
-| | |-object                        NO
-| | | |-repeat                      NO  
+| |-objects                         YES
+| | |-object                        YES
+| | | |-repeat                      YES  
 | | | |-outlines                    NO
 | | | | |-outline                   NO
 | | | | | |-cornerRoad              NO    
@@ -99,8 +99,8 @@ OpenDRIVE                           YES
 | | | |-validity                    NO
 | | |-bridge                        NO
 | | | |-validity                    NO
-| |-signals                         NO
-| | |-signal                        NO
+| |-signals                         YES
+| | |-signal                        YES
 | | | |-validity                    NO
 | | | |-dependency                  NO
 | | | |-reference                   NO
