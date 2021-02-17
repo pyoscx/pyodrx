@@ -17,8 +17,8 @@ planview = pyodrx.PlanView()
 planview.add_geometry(pyodrx.Line(200))
 
 # create two different roadmarkings
-rm_solid = pyodrx.RoadMark(pyodrx.RoadMarkType.solid,0.2,rule=pyodrx.MarkRule.no_passing)
-rm_dashed = pyodrx.RoadMark(pyodrx.RoadMarkType.broken,0.2,rule=pyodrx.MarkRule.no_passing)
+rm_solid = pyodrx.RoadMark(pyodrx.RoadMarkType.solid,0.2)
+rm_dashed = pyodrx.RoadMark(pyodrx.RoadMarkType.broken,0.2)
 
 # create a centerlane (same centerlane can be used since no linking is needed for this)
 centerlane = pyodrx.Lane(a=2)
@@ -113,5 +113,9 @@ for r in roads:
     odr.add_road(r)
 odr.adjust_roads_and_lanes()
 odr.add_junction(junction)
-pyodrx.run_road(odr,os.path.join('..','..','esmini'))
 
+# write the OpenDRIVE file as xodr using current script name
+odr.write_xml(os.path.basename(__file__).replace('.py','.xodr'))
+
+# uncomment the following line to display the road using esmini
+# pyodrx.run_road(odr,os.path.join('..','..','esmini'))

@@ -22,7 +22,7 @@ planview.add_geometry(line3)
 
 
 ##3. Create a solid roadmark
-rm = pyodrx.RoadMark(pyodrx.RoadMarkType.solid,0.2,rule=pyodrx.MarkRule.no_passing)
+rm = pyodrx.RoadMark(pyodrx.RoadMarkType.solid,0.2)
 
 ##4. Create centerlane 
 centerlane = pyodrx.Lane(a=2)
@@ -78,6 +78,8 @@ road.add_object(jerseyBarrier)
 ##15. Print the .xodr file
 pyodrx.prettyprint(odr.get_element())
 
-##16. Write .xodr file
+# write the OpenDRIVE file as xodr using current script name
 odr.write_xml(os.path.basename(__file__).replace('.py','.xodr'))
 
+# uncomment the following line to display the road using esmini
+# pyodrx.run_road(odr,os.path.join('..','..','esmini'))
